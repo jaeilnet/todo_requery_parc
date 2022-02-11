@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useEffect } from "react";
 import styled from "styled-components";
-import confirm from "antd/lib/modal/confirm";
 import { EditText } from "./type";
 import useTodo from "../custom/useTodo";
 import {
@@ -12,11 +11,13 @@ import {
   ListItemText,
   TextField,
 } from "@mui/material";
+import confirm from "antd/lib/modal/confirm";
 
 interface TodoListProps {}
 
 const TodoList: React.FC<TodoListProps> = () => {
-  const { todoList, deleteTodoMutation, patchTodoMutation } = useTodo();
+  const { todoList, deleteTodoMutation, patchTodoMutation, isLoadingRender } =
+    useTodo();
 
   // 리스트 불러오기
 
@@ -38,7 +39,7 @@ const TodoList: React.FC<TodoListProps> = () => {
     });
   };
 
-  const showEditConfirm = (
+  const showEditconfirm = (
     e: React.MouseEvent,
     id: string,
     contents: string
@@ -98,7 +99,7 @@ const TodoList: React.FC<TodoListProps> = () => {
 
   return (
     <>
-      {/* {isLoadingRender} */}
+      {isLoadingRender}
       <List>
         {todoList
           ? todoList.map((todo: any) => (
@@ -109,7 +110,7 @@ const TodoList: React.FC<TodoListProps> = () => {
                     variant="outlined"
                     style={{ margin: "0 5px" }}
                     onClick={(e: React.MouseEvent) =>
-                      showEditConfirm(e, todo.id, todo.contents)
+                      showEditconfirm(e, todo.id, todo.contents)
                     }
                   >
                     수정

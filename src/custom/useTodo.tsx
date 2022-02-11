@@ -1,4 +1,4 @@
-import { Alert } from "@mui/material";
+import { Alert, CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from "react-query";
 import { queryClient } from "..";
@@ -53,7 +53,7 @@ const useTodo = () => {
     },
   });
 
-  const isLoadingRender = isLoading && <p>로딩 중 입니다</p>;
+  const isLoadingRender = isLoading && <CircularProgress />;
   const isErrorRander = isError && <p>에러 입니다</p>;
 
   return {

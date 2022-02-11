@@ -20,7 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ isLogin }) => {
 
   const locaiton = useLocation();
 
-  useEffect(() => {}, [locaiton, isLogin]);
+  useEffect(() => {}, [locaiton]);
 
   const PrivateRoute: React.FC<any> = ({
     component: CustomComponent,
@@ -46,6 +46,7 @@ const Layout: React.FC<LayoutProps> = ({ isLogin }) => {
     path,
     ...rest
   }) => {
+    console.log(isLogin, "public");
     if (!isLogin) {
       const renderCustomerComponent = (props: any) => (
         <CustomComponent {...props} />

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Title from "antd/lib/typography/Title";
-import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { Button, Fab, Grid } from "@mui/material";
 
@@ -19,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ isLogin }) => {
     localStorage.removeItem("isLogin");
 
     history.push("/login");
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (
